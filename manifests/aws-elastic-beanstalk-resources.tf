@@ -90,7 +90,13 @@ setting {
     name = "RDS_HOSTNAME"
     value = "${module.rdsdb.db_instance_endpoint}"
   }
-
+  
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name = "REDIS_URL"
+    value = "${aws_elasticache_replication_group.default.configuration_endpoint_address}"
+    
+  }
 
 
 }
